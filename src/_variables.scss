@@ -1,0 +1,59 @@
+//------ COLOR VARIABLES -------//
+
+$white: #ffffff;
+$black: #231f20;
+$grey: #303030;
+$light-grey: #626262;
+$beje: #f8ddc8;
+
+//------ FONT VARIABLES -------//
+$europa: europa, sans-serif;
+$arvo: arvo, serif;
+$primary-font: "Poppins", sans-serif;
+$second-font: "Roboto Condensed", sans-serif;
+
+// Font Weight
+$light: 300;
+$regular: normal;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+// --------------------------- MIXINS ---------------------------- //
+
+@mixin font($font-family, $font-weight, $font-size, $color) {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    color: $color;
+}
+
+@mixin flex($justify-content, $align-items, $flex-direction: row) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: $justify-content;
+    -ms-flex-pack: $justify-content;
+    justify-content: $justify-content;
+    -webkit-box-align: $align-items;
+    -ms-flex-align: $align-items;
+    align-items: $align-items;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $flex-direction;
+    flex-direction: $flex-direction;
+}
+
+@mixin flexcenter() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+}

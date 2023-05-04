@@ -1,0 +1,105 @@
+@import "../../variables";
+
+.wrapper {
+    max-width: 700px;
+    min-width: 300px;
+    width: 80vw;
+    height: 100vh;
+    margin: auto;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+
+    @media screen and (max-width: 600px) {
+        width: 100vw;
+        max-width: 600px;
+        min-width: 100px;
+    }
+}
+
+section#product-list {
+    height: auto;
+    width: 100%;
+    background-image: url(../../assets/bg_menu.png);
+    background-color: #fff;
+    background-size: inherit;
+    padding: 0 20px 40px 20px;
+    @include flex(flex-start, stretch, column);
+
+    .each-category {
+        width: 100%;
+        height: auto;
+        @include flex(flex-start, stretch, column);
+
+        .title-category {
+            @include flex(space-between, center);
+            margin-bottom: 20px;
+            background-color: #331e15;
+            border-radius: 4px;
+            padding: 4px 0;
+            h2 {
+                @include font($primary-font, $medium, 18px, #fff);
+                text-transform: uppercase;
+                margin: 0 6px;
+                white-space: nowrap;
+
+                @media screen and (max-width: 450px) {
+                    font-size: 16px;
+                }
+            }
+            hr {
+                height: 1px;
+                width: 100%;
+                border: 1px solid transparent;
+            }
+            .category-description {
+                @include font($second-font, $regular, 14px, #d9d9d9);
+                margin: 0 6px;
+            }
+        }
+
+        .each-product {
+            @include flex(space-between, center);
+            width: 100%;
+            height: auto;
+            margin-bottom: 6px;
+            padding: 6px 0;
+
+            .title-and-description {
+                @include flex(center, flex-start, column);
+
+                h3.product-title {
+                    @include font($primary-font, $semibold, 16px, $grey);
+                    text-transform: uppercase;
+                    line-height: 18px;
+                    margin-bottom: 2px;
+                }
+                p.description {
+                    @include font($second-font, $regular, 13px, #444444);
+                    line-height: 14px;
+                    margin-top: 2px;
+                }
+            }
+            .price {
+                @include font($primary-font, $regular, 14px, $grey);
+                margin-left: 10px;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    button {
+        background-color: transparent;
+        border: 2px solid $grey;
+        border-radius: 5px;
+        @include font($primary-font, $semibold, 14px, $grey);
+        text-transform: uppercase;
+        width: auto;
+        margin: auto;
+        height: 30px;
+        padding: 0 20px;
+
+        &:hover {
+            background-color: $beje;
+            color: black;
+        }
+    }
+}

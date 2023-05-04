@@ -1,0 +1,31 @@
+<div class="wrapper">
+
+    <app-header></app-header>
+
+    <section id="product-list">
+
+        <!--  <app-images-carousel></app-images-carousel> -->
+
+        <!--  <ng-container class="each-category" *ngFor="let category of categories"> -->
+        <div class="each-category" *ngFor="let category of categories">
+            <!-- Title Category -->
+            <div class="title-category">
+                <!-- <hr> -->
+                <h2>{{ category.title }}</h2>
+                <!-- <hr> -->
+                <p class="category-description" *ngIf="category.description">{{ category.description }}</p>
+            </div>
+            <div class="each-product" *ngFor="let product of category.products">
+                <div class="title-and-description">
+                    <h3 class="product-title">{{ product.title }}</h3>
+                    <p class="description" *ngIf="product.description">{{product.description}}</p>
+                </div>
+                <div class="price">{{ product.price.toFixed(2) }} €</div>
+            </div>
+        </div>
+
+        <!--  <button><a>Ver Bebidas</a></button> -->
+        <!--     </ng-container> -->
+    </section>
+
+</div>

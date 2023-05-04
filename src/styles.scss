@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+@import "bootstrap/scss/bootstrap";
+@import "_variables.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $primary-font;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 100vh;
+    background: url(assets/bg-altose.jpeg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: transparent;
+    background-color: rgb(35, 35, 35);
+}
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}

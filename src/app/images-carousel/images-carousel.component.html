@@ -1,0 +1,12 @@
+<div class="wrapper-carousel">
+
+    <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let image of images">
+            <img class="img-carousel" [src]="image.src" alt="Random first slide">
+            <div class="carousel-caption" *ngIf="image.description">
+                <p>{{ image.description }}</p>
+            </div>
+        </ng-template>
+
+    </ngb-carousel>
+</div>
