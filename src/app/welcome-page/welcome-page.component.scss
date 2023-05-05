@@ -32,25 +32,23 @@ section#welcome {
     }
 
     .logo-wrapper {
-        max-width: 70%;
-        height: auto;
+        width: 100%;
+        height: 100%;
         @include flexcenter();
-        background-color: #ffffffcb;
-        border-radius: 50%;
+        background-color: #ffffff57;
         padding: 3%;
 
         @media (hover: hover) {
             &:hover {
-                background-color: #ffffff;
-                transform: scale(104%);
+                background-color: #ffffffb0;
             }
         }
 
         img {
-            width: 100%;
+            width: auto;
             height: auto;
             max-width: 400px;
-            max-height: 250px;
+            max-height: 265px;
 
             @media screen and (max-width: 800px) {
                 max-height: 150px;

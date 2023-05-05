@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { Router } from '@angular/router';
+import { Restaurant } from '../models/models';
+import { RestaurantService } from '../restaurant.service';
 
 
 @Component({
@@ -20,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public router: Router,
+    public RestaurantService: RestaurantService
   ) {
   }
 
@@ -27,22 +30,16 @@ export class HeaderComponent implements OnInit {
     this.checkRoute();
   }
 
-  /*  selectType() {
-     this.refeicaoSelected = !this.refeicaoSelected;
-   }
-  */
-  /*  selectCategory() {
-     this.comidaSelected = !this.comidaSelected;
-   } */
-
-  selectLanguage() {
-    this.pt = !this.pt;
-  }
+  /*   selectLanguage(pt: boolean): void {
+      if (true) { }
+    } */
 
   checkRoute() {
     if (this.router.url.includes('/lume')) {
       this.lume = !this.lume;
     }
   }
-
+  selectLanguage(): void {
+    this.pt = !this.pt;
+  }
 }

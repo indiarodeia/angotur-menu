@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Category, Product } from 'src/app/models/models';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RestaurantService } from '../restaurant.service';
 
 
 
@@ -13,16 +17,28 @@ export class ProductsListComponent implements OnInit {
 
 
   public lume: boolean = false;
+  /*   public categories: Array<Category> = new Array<Category>(); */
   public categories!: Category[];
-  public category: any;
+  public backgroundImageUrl!: string;
+  restaurantData: any;
 
   constructor(
     public router: Router,
+    private http: HttpClient,
+    private restaurantService: RestaurantService
   ) { }
 
   ngOnInit(): void {
 
     this.checkRoute();
+
+    this.changeBackgroundImage();
+
+    /* if (this.lume) {
+      this.getRestaurantData(2,)
+    } else {
+
+    } */
 
     if (this.lume) {
       this.categories = [
@@ -42,7 +58,6 @@ export class ProductsListComponent implements OnInit {
         },
         {
           title: "Carne",
-          description: "(2 Acompanhamentos incluídos)",
           products: [
             { title: "Tira Açoriana", price: 15 },
             { title: "Lombelo", price: 17 },
@@ -56,7 +71,6 @@ export class ProductsListComponent implements OnInit {
         },
         {
           title: "Peixe",
-          description: "(2 Acompanhamentos incluídos)",
           products: [
             { title: "Polvo na brasa", price: 18 },
             { title: "Bacalhau na brasa", price: 19 },
@@ -146,7 +160,6 @@ export class ProductsListComponent implements OnInit {
         },
       ];
     }
-
   };
 
   checkRoute() {
@@ -154,5 +167,21 @@ export class ProductsListComponent implements OnInit {
       this.lume = !this.lume;
     }
   }
+
+  getRestaurantData(restaurantId: number, isDefaultLanguage: boolean) {
+    this.restaurantService.getRestaurantData(restaurantId, isDefaultLanguage).subscribe((data) => {
+      this.categories = <Category[]>data;
+      console.warn('this is my data: ', this.categories);
+    })
+  }
+
+  changeBackgroundImage() {
+    if (this.lume) {
+      this.backgroundImageUrl = "url(../../assets/bg-lume.jpg)";
+    } else {
+      this.backgroundImageUrl = "url(../../assets/bg-altose.jpeg)";
+    }
+  }
+
 
 };

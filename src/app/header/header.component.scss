@@ -1,7 +1,6 @@
 @import "../../variables";
 
 header {
-    height: auto;
     width: 100%;
     background-image: url(../../assets/bg_menu.png);
     background-color: #fff;
@@ -21,8 +20,9 @@ header {
     }
 
     .first-container {
-        padding: 20px 20px 10px;
+        padding: 20px 20px 20px;
         @include flex(space-between, center);
+        height: 110px;
 
         #logo {
             width: auto;

@@ -1,5 +1,14 @@
 @import "../../variables";
 
+.background-layer {
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    // background-image: url(../../assets/bg-altose.jpeg);
+}
+
 .wrapper {
     max-width: 700px;
     min-width: 300px;
@@ -23,6 +32,8 @@ section#product-list {
     background-size: inherit;
     padding: 0 20px 40px 20px;
     @include flex(flex-start, stretch, column);
+    max-height: calc(100vh - 106px);
+    overflow: scroll;
 
     .each-category {
         width: 100%;

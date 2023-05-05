@@ -16,7 +16,6 @@ body {
     overflow-y: scroll;
     width: 100vw;
     height: 100vh;
-    background: url(assets/bg-altose.jpeg);
     background-attachment: fixed;
     background-size: cover;
     background-color: transparent;
@@ -40,4 +39,8 @@ a:active {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+}
+
+--webkit-scrollbar {
+    display: none;
 }
