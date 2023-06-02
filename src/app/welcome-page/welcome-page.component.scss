@@ -1,7 +1,7 @@
 @import "../../variables";
 
 section#welcome {
-    height: 100vh;
+    height: calc(100vh - 66px);
     width: 100vw;
     background-color: #484848;
     @include flex(stretch, stretch);
@@ -132,4 +132,22 @@ section#welcome {
             }
         }
     } */
+}
+
+section#gov {
+    background-color: #fff;
+    @include flexcenter();
+    padding: 20px;
+    height: 66px;
+
+    a {
+        @include flexcenter();
+    }
+
+    @media screen and (max-width: 550px) {
+        padding: 10px;
+        img {
+            width: 90%;
+        }
+    }
 }
