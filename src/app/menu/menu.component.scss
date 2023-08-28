@@ -1,0 +1,117 @@
+@import "../../variables";
+
+#menu-section {
+    width: 100%;
+    background-image: url(../../assets/bg_menu.png);
+    background-color: #fff;
+    background-size: inherit;
+    position: sticky;
+    top: 0;
+    max-width: 1000px;
+    @include flex(space-between, stretch, column);
+    border: 0;
+    border-bottom: 1px solid #bcbcbc;
+    z-index: 1000;
+
+    @media screen and (max-width: 600px) {
+        width: 100vw;
+        max-width: 600px;
+        min-width: 100px;
+    }
+
+    .menu-header {
+        @include flex(flex-start, stretch, column);
+        width: 100%;
+    }
+
+    .first-container {
+        padding: 40px 20px;
+        @include flex(space-between, center);
+        height: auto;
+        width: 100%;
+
+        .logo {
+            width: auto;
+            height: auto;
+            max-width: 110px;
+            max-height: 80px;
+        }
+        h1 {
+            @include font($primary-font, $semibold, 28px, $black);
+            text-align: center;
+            // letter-spacing: 0.1em;
+            text-transform: uppercase;
+
+            /*   @media screen and (max-width: 600px) {
+                display: none;
+            } */
+        }
+        .logo-hidden {
+            visibility: hidden;
+        }
+        /*   .toogle-language {
+            width: auto;
+            height: 36px;
+            border: 2px solid #000;
+            @include flex(space-between, center);
+            border-radius: 4px;
+            background-color: #c1c1c1;
+            -webkit-transition: 0.1s ease-in-out;
+            -o-transition: 0.1s ease-in-out;
+            transition: 0.1s ease-in-out;
+
+            .each-option {
+                padding: 0 10px;
+                height: 100%;
+                font-size: 16px;
+                height: 36px;
+                white-space: nowrap;
+                color: #000000;
+                -webkit-transition: 0.1s ease-in-out;
+                -o-transition: 0.1s ease-in-out;
+                transition: 0.1s ease-in-out;
+
+                &:first-of-type {
+                    margin-left: -1px;
+                }
+                &:last-of-type {
+                    margin-right: -1px;
+                }
+            }
+        }
+        .language-selected {
+            background-color: #222222;
+            color: #fff !important;
+            border-radius: 4px;
+        } */
+    }
+
+    .tabs-menu {
+        @include flexcenter();
+        padding: 0 20px 20px;
+
+        .mat-chip {
+            background-color: $orange;
+            border-radius: 6px;
+            @include font($primary-font, $regular, 14px, #fff);
+        }
+        .mat-chip-selected {
+            background-color: #663a11;
+        }
+    }
+}
+
+.wrapper {
+    max-width: 700px;
+    min-width: 300px;
+    width: 80vw;
+    height: 100vh;
+    margin: auto;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+
+    @media screen and (max-width: 600px) {
+        width: 100vw;
+        max-width: 600px;
+        min-width: 100px;
+    }
+}

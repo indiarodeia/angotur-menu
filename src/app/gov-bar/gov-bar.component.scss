@@ -1,0 +1,13 @@
+@import "../../variables";
+
+#gov-bar-section {
+    width: 100%;
+    background-color: #fff;
+    padding: 60px 30px 30px;
+    @include flexcenter();
+
+    img {
+        max-height: 34px;
+        width: auto;
+    }
+}

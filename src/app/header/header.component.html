@@ -1,4 +1,6 @@
-<header>
+<!-- OLD HEADER -->
+
+<!-- <header>
     <div class="first-container">
         <img *ngIf="lume" id="logo" src="../assets/logo-lume.png" alt="Logotipo">
         <img *ngIf="!lume" id="logo" src="../assets/logo-altose.png" alt="Logotipo">
@@ -8,18 +10,14 @@
             <div class="each-option" [class.language-selected]="!pt" (click)="selectLanguage()">🇬🇧 EN</div>
         </div>
     </div>
-    <!--    <select class="select-category">
-        <option value="pequeno-almoco">Pequeno Almoço</option>
-        <option value="almoco">Almoço</option>
-        <option value="jantar">Jantar</option>
-        <option value="bebidas">Bebidas</option>
-    </select> -->
-    <!--  <div class="toogle-category">
-        <div class="each-option" [class.comida-selected]="!refeicaoSelected" (click)="selectType()">Pequeno-Almoço</div>
-        <div class="each-option" [class.bebida-selected]="refeicaoSelected" (click)="selectType()">Refeições</div>
+</header> -->
+
+<!-- NEW HEADER -->
+
+<header>
+    <div class="logo">Angotur</div>
+    <div class="nav">
+        <a class="menu-item" href="#" title="Restaurantes">Restaurantes</a>
+        <div class="menu-item language-toogle">PT🇵🇹</div>
     </div>
-    <div class="toogle-category margin" *ngIf="refeicaoSelected">
-        <div class="each-option" [class.comida-selected]="comidaSelected" (click)="selectCategory()">Comida</div>
-        <div class="each-option" [class.bebida-selected]="!comidaSelected" (click)="selectCategory()">Bebida</div>
-    </div> -->
 </header>

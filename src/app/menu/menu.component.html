@@ -1,0 +1,24 @@
+<div class="wrapper">
+
+    <section id="menu-section">
+        <div class="menu-header">
+            <div class="first-container">
+                <img *ngIf="lume" class="logo" src="../assets/logo-lume.png" alt="Logotipo">
+                <img *ngIf="!lume" class="logo" src="../assets/logo-altose.png" alt="Logotipo">
+                <h1>MENU</h1>
+                <img *ngIf="lume" class="logo logo-hidden" src="../assets/logo-lume.png" alt="Logotipo">
+                <img *ngIf="!lume" class="logo logo-hidden" src="../assets/logo-altose.png" alt="Logotipo">
+            </div>
+            <div class="tabs-menu">
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip>Entradas</mat-chip>
+                    <mat-chip>Carne</mat-chip>
+                    <mat-chip color="accent" selected>Peixe</mat-chip>
+                    <mat-chip>Acompanhamentos</mat-chip>
+                    <mat-chip>Sobremesas</mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+    </section>
+
+</div>

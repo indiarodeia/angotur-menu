@@ -1,34 +1,5 @@
 @import "../../variables";
 
-header {
-    height: 70px;
-    background-color: #131313;
-    width: 100%;
-    @include flex(space-between, center);
-    padding: 0 10%;
-
-    .logo {
-        @include font($primary-font, $bold, 18px, $light-orange);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .nav {
-        @include flex(flex-end, center);
-        gap: 20px;
-
-        .menu-item {
-            @include font($primary-font, $regular, 16px, #ffffff);
-
-            @media (hover: hover) {
-                &:hover {
-                    color: $orange;
-                }
-            }
-        }
-    }
-}
-
 p {
     margin: 0;
 }
