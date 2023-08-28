@@ -9,6 +9,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ImagesCarouselComponent } from './images-carousel/images-carousel.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     ProductsListComponent,
     WelcomePageComponent,
-    ImagesCarouselComponent],
+    ImagesCarouselComponent,
+    RestaurantsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

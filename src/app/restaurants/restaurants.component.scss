@@ -1,0 +1,184 @@
+@import "../../variables";
+
+header {
+    height: 70px;
+    background-color: #131313;
+    width: 100%;
+    @include flex(space-between, center);
+    padding: 0 10%;
+
+    .logo {
+        @include font($primary-font, $bold, 18px, $light-orange);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nav {
+        @include flex(flex-end, center);
+        gap: 20px;
+
+        .menu-item {
+            @include font($primary-font, $regular, 16px, #ffffff);
+
+            @media (hover: hover) {
+                &:hover {
+                    color: $orange;
+                }
+            }
+        }
+    }
+}
+
+p {
+    margin: 0;
+}
+
+#section-restaurants {
+    background-color: #fff;
+    padding: 5% 10%;
+    @include flex(flex-start, stretch, column);
+    gap: 60px;
+
+    h2 {
+        @include font($primary-font, $bold, 40px, #000);
+    }
+
+    .each-restaurant {
+        width: 100%;
+        @include flex(space-between, flex-start);
+        gap: 4%;
+        margin-bottom: 60px;
+
+        .img-holder {
+            max-width: 50%;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+
+            img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .restaurant-info {
+            @include flex(flex-start, flex-start, column);
+            gap: 10px;
+
+            .logo-restaurant {
+                max-height: 90px;
+                max-width: 170px;
+                width: auto;
+            }
+
+            h3 {
+                @include font($primary-font, $bold, 26px, #000);
+            }
+
+            .each-item {
+                @include flex(flex-start, center);
+                gap: 10px;
+
+                svg {
+                    height: 20px;
+                    width: auto;
+                }
+
+                .item-link {
+                    @include font($primary-font, $medium, 16px, #000);
+                }
+                @media (hover: hover) {
+                    &:hover {
+                        .item-link {
+                            color: $orange;
+                        }
+
+                        svg path {
+                            fill: $orange;
+                        }
+                    }
+                }
+
+                .item {
+                    @include font($primary-font, $medium, 16px, #000);
+                }
+            }
+
+            .sub-item {
+                @include flex(flex-start, flex-start, column);
+                line-height: 25px;
+                margin-left: 34px;
+                p {
+                    @include font($primary-font, $regular, 14px, #000);
+                    margin: 0;
+
+                    span {
+                        font-weight: $semibold;
+                    }
+                }
+            }
+
+            .social-links {
+                @include flex(flex-start, center);
+                gap: 10px;
+
+                .btn-social {
+                    padding: 8px;
+                    background-color: #e8e8e8;
+                    height: 36px;
+                    @include flexcenter();
+                    gap: 6px;
+                    border-radius: 4px;
+
+                    @include font($primary-font, $medium, 16px, #000);
+
+                    svg {
+                        height: 18px;
+                        width: auto;
+                    }
+
+                    @media (hover: hover) {
+                        &:hover {
+                            color: #fff;
+                            background-color: $orange;
+
+                            svg {
+                                path {
+                                    fill: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btn-menu {
+                width: 100%;
+                border-radius: 4px;
+                background-color: $orange;
+                @include flexcenter();
+                gap: 8px;
+                @include font($primary-font, $medium, 16px, #fff);
+                text-transform: uppercase;
+                height: 48px;
+
+                svg {
+                    height: 20px;
+                }
+
+                @media (hover: hover) {
+                    &:hover {
+                        background-color: $light-orange;
+                        color: #000;
+                        svg {
+                            path {
+                                fill: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
