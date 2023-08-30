@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-    <section id="menu-section">
+    <div id="menu-section">
         <div class="menu-header">
             <div class="first-container">
                 <img *ngIf="lume" class="logo" src="../assets/logo-lume.png" alt="Logotipo">
@@ -10,15 +10,39 @@
                 <img *ngIf="!lume" class="logo logo-hidden" src="../assets/logo-altose.png" alt="Logotipo">
             </div>
             <div class="tabs-menu">
-                <mat-chip-list aria-label="Fish selection">
-                    <mat-chip>Entradas</mat-chip>
-                    <mat-chip>Carne</mat-chip>
-                    <mat-chip color="accent" selected>Peixe</mat-chip>
-                    <mat-chip>Acompanhamentos</mat-chip>
-                    <mat-chip>Sobremesas</mat-chip>
-                </mat-chip-list>
+                <a class="chip" *ngFor="let category of categories" pageScroll href="#Cachorros">
+                    {{ category.title }}</a>
+
             </div>
         </div>
-    </section>
+
+        <!--   href="{{'#' + category.title}}" -->
+
+
+        <div class="menu-list">
+
+            <section class="each-category" *ngFor="let category of categories" [id]="category.title">
+                <!-- Title Category -->
+                <div class="title-category">
+                    <!-- <hr> -->
+                    <h2>{{ category.title }}</h2>
+                    <!-- <hr> -->
+                    <!--  <p class="category-description" *ngIf="category.description">{{ category.description }}</p> -->
+                </div>
+                <div class="products-list">
+                    <div class="each-product" *ngFor="let product of category.products">
+                        <div class="product-image">
+                            <img src="../../assets/galeria1.jpg">
+                        </div>
+                        <div class="title-and-description">
+                            <h3 class="product-title">{{ product.title }}</h3>
+                            <p class="description" *ngIf="product.description">{{product.description}}</p>
+                        </div>
+                        <div class="price">{{ product.price.toFixed(2) }}€</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
 </div>
