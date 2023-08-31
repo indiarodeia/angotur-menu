@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
-import { MatChipsModule } from '@angular/material/chips';
 import { Category } from '../models/models';
 import { ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
