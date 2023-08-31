@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" [style.background-image]="backgroundImageUrl">
 
     <div id="menu-section">
         <div class="menu-header">
@@ -32,7 +32,7 @@
                 <div class="products-list">
                     <div class="each-product" *ngFor="let product of category.products">
                         <div class="product-image">
-                            <img src="../../assets/galeria1.jpg">
+                            <img [src]="product.imageUrl">
                         </div>
                         <div class="title-and-description">
                             <h3 class="product-title">{{ product.title }}</h3>
@@ -43,6 +43,8 @@
                 </div>
             </section>
         </div>
+        <app-gov-bar></app-gov-bar>
     </div>
+
 
 </div>

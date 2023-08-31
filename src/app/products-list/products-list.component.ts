@@ -40,7 +40,7 @@ export class ProductsListComponent implements OnInit {
 
     } */
 
-    if (this.lume) {
+    /* if (this.lume) {
       this.categories = [
         {
           title: "Entradas",
@@ -158,8 +158,8 @@ export class ProductsListComponent implements OnInit {
             { title: "Cachorro de Camarão ao Alho", price: 7.5, description: "Salada coleslaw com camarão ao alho" },
           ]
         },
-      ];
-    }
+      ]; 
+    }*/
   };
 
   checkRoute() {

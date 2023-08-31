@@ -15,9 +15,12 @@
 <!-- NEW HEADER -->
 
 <header>
-    <div class="logo">Angotur</div>
+    <a class="logo" routerLink="/">Angotur</a>
     <div class="nav">
         <a class="menu-item" href="#" title="Restaurantes">Restaurantes</a>
-        <div class="menu-item language-toogle">PT🇵🇹</div>
+        <div class="menu-item toogle-language">
+            <div class="each-option" [class.language-selected]="pt" (click)="selectLanguage()">🇵🇹 PT</div>
+            <div class="each-option" [class.language-selected]="!pt" (click)="selectLanguage()">🇬🇧 EN</div>
+        </div>
     </div>
 </header>

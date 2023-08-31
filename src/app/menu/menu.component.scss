@@ -4,18 +4,24 @@ p {
     margin-bottom: 0;
 }
 
+.wrapper {
+    width: 100vw;
+    height: auto;
+    @include flex(flex-start, center, column);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 #menu-section {
     width: 100%;
-    background-image: url(../../assets/bg_menu.png);
+    background: url(../../assets/bg_menu.png), #fff;
     background-color: #fff;
-    background-size: inherit;
-    position: sticky;
-    top: 0;
-    max-width: 1000px;
+    background-size: initial;
+    max-width: 1300px;
     @include flex(space-between, stretch, column);
     border: 0;
     border-bottom: 1px solid #bcbcbc;
-    z-index: 1000;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
 
     @media screen and (max-width: 600px) {
         width: 100vw;
@@ -33,6 +39,11 @@ p {
         @include flex(space-between, center);
         height: auto;
         width: 100%;
+        gap: 20px;
+
+        @media screen and (max-width: 580px) {
+            padding: 20px;
+        }
 
         .logo {
             width: auto;
@@ -54,46 +65,13 @@ p {
         .logo-hidden {
             visibility: hidden;
         }
-        /*   .toogle-language {
-            width: auto;
-            height: 36px;
-            border: 2px solid #000;
-            @include flex(space-between, center);
-            border-radius: 4px;
-            background-color: #c1c1c1;
-            -webkit-transition: 0.1s ease-in-out;
-            -o-transition: 0.1s ease-in-out;
-            transition: 0.1s ease-in-out;
-
-            .each-option {
-                padding: 0 10px;
-                height: 100%;
-                font-size: 16px;
-                height: 36px;
-                white-space: nowrap;
-                color: #000000;
-                -webkit-transition: 0.1s ease-in-out;
-                -o-transition: 0.1s ease-in-out;
-                transition: 0.1s ease-in-out;
-
-                &:first-of-type {
-                    margin-left: -1px;
-                }
-                &:last-of-type {
-                    margin-right: -1px;
-                }
-            }
-        }
-        .language-selected {
-            background-color: #222222;
-            color: #fff !important;
-            border-radius: 4px;
-        } */
     }
 
     .tabs-menu {
         @include flexcenter();
         padding: 0 20px 20px;
+        gap: 8px;
+        flex-wrap: wrap;
 
         .mat-chip {
             background-color: $orange;
@@ -103,11 +81,27 @@ p {
         .mat-chip-selected {
             background-color: #663a11;
         }
+
+        .chip {
+            @include flexcenter();
+            padding: 4px 12px;
+            background-color: $orange;
+            border-radius: 6px;
+            @include font($primary-font, $regular, 14px, #fff);
+
+            &:hover {
+                background-color: #663a11;
+            }
+        }
     }
 }
 
 .menu-list {
-    padding: 10px;
+    padding: 10px 40px 60px;
+
+    @media screen and (max-width: 580px) {
+        padding: 0 20px 40px;
+    }
 
     .each-category {
         width: 100%;
@@ -141,6 +135,10 @@ p {
             flex-wrap: wrap;
             gap: 14px;
 
+            @media screen and (max-width: 985px) {
+                gap: 10px;
+            }
+
             .each-product {
                 @include flex(flex-start, stretch, row);
                 width: 32.3%;
@@ -149,7 +147,15 @@ p {
                 background-color: #fff;
                 gap: 6px;
                 position: relative;
-                border-radius: 2px;
+                border-radius: 4px;
+
+                @media screen and (max-width: 768px) {
+                    width: 49%;
+                }
+                @media screen and (max-width: 580px) {
+                    width: 100%;
+                    gap: 12px;
+                }
 
                 .product-image {
                     height: 100%;
@@ -173,14 +179,21 @@ p {
                     max-width: 168px;
 
                     h3.product-title {
-                        @include font($primary-font, $semibold, 16px, #000);
+                        @include font($primary-font, $semibold, 18px, #000);
                         text-transform: uppercase;
                         line-height: 18px;
                         margin-bottom: 3px;
+
+                        @media screen and (max-width: 900px) {
+                            font-size: 15px;
+                        }
                     }
                     p.description {
-                        @include font($second-font, $regular, 13px, #6a6a6a);
+                        @include font($second-font, $regular, 14px, #6a6a6a);
                         line-height: 13px;
+                        @media screen and (max-width: 900px) {
+                            font-size: 13px;
+                        }
                     }
                 }
                 .price {
@@ -193,20 +206,5 @@ p {
                 }
             }
         }
-    }
-}
-
-.wrapper {
-    max-width: 1100px;
-    min-width: 300px;
-    width: 80vw;
-    height: 100vh;
-    margin: auto;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
-
-    @media screen and (max-width: 600px) {
-        width: 100vw;
-        max-width: 1000px;
-        min-width: 100px;
     }
 }

@@ -7,23 +7,56 @@ p {
 #section-restaurants {
     background-color: #fff;
     padding: 5% 10%;
-    @include flex(flex-start, stretch, column);
-    gap: 60px;
+
+    @media screen and (max-width: 1500px) {
+        padding: 5% 4%;
+    }
+    @media screen and (max-width: 900px) {
+        padding: 8% 10%;
+    }
+
+    .restaurant-wrapper {
+        margin: auto;
+        @include flex(flex-start, stretch, column);
+        gap: 60px;
+        max-width: 1200px;
+
+        @media screen and (max-width: 1300px) {
+            gap: 40px;
+        }
+    }
 
     h2 {
-        @include font($primary-font, $bold, 40px, #000);
+        @include font($primary-font, $bold, 48px, #000);
+
+        @media screen and (max-width: 900px) {
+            font-size: 40px;
+            line-height: 40px;
+        }
     }
 
     .each-restaurant {
         width: 100%;
-        @include flex(space-between, flex-start);
+        @include flex(center, flex-start);
         gap: 4%;
         margin-bottom: 60px;
 
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+            gap: 18px;
+        }
+
         .img-holder {
             max-width: 50%;
+            max-height: 600px;
             overflow: hidden;
             aspect-ratio: 1/1;
+
+            @media screen and (max-width: 900px) {
+                max-width: none;
+                width: 100%;
+                max-height: 340px;
+            }
 
             img {
                 object-fit: cover;
@@ -37,10 +70,19 @@ p {
             @include flex(flex-start, flex-start, column);
             gap: 10px;
 
+            @media screen and (max-width: 900px) {
+                width: 100%;
+            }
+
             .logo-restaurant {
                 max-height: 90px;
                 max-width: 170px;
                 width: auto;
+
+                @media screen and (max-width: 900px) {
+                    align-self: center;
+                    margin-bottom: 10px;
+                }
             }
 
             h3 {
@@ -76,6 +118,21 @@ p {
                 }
             }
 
+            .each-item.nolink {
+                @media (hover: hover) {
+                    &:hover {
+                        .item-link {
+                            color: #000;
+                            cursor: default;
+                        }
+
+                        svg path {
+                            fill: #000;
+                        }
+                    }
+                }
+            }
+
             .sub-item {
                 @include flex(flex-start, flex-start, column);
                 line-height: 25px;
@@ -101,7 +158,7 @@ p {
                     @include flexcenter();
                     gap: 6px;
                     border-radius: 4px;
-
+                    white-space: nowrap;
                     @include font($primary-font, $medium, 16px, #000);
 
                     svg {
@@ -133,6 +190,7 @@ p {
                 @include font($primary-font, $medium, 16px, #fff);
                 text-transform: uppercase;
                 height: 48px;
+                white-space: nowrap;
 
                 svg {
                     height: 20px;
