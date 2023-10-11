@@ -6,7 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RestaurantService {
 
-
   private apiKey = '93388c06-a8f5-4e5f-873c-1db6d41a7564';
   private apiUrl = 'https://angoturfood.com/rest/api/Categories/Restaurant/';
 
@@ -23,11 +22,11 @@ export class RestaurantService {
 
   isDefaultLanguage(defaultLanguage: boolean) {
     if (defaultLanguage) {
+      console.log('is default language: ' + true);
       return true;
     } else {
+      console.log('is default language: ' + false);
       return false;
     }
   }
-
-
 }

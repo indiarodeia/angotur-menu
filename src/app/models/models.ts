@@ -30,3 +30,10 @@ export class Image {
         public description?: string,
     ) { }
 }
+
+export class DishOfTheDay {
+    constructor(
+        public product: Product,
+        public day: string,
+    ) { }
+}

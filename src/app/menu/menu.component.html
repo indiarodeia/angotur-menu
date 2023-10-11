@@ -10,18 +10,37 @@
                 <img *ngIf="!lume" class="logo logo-hidden" src="../assets/logo-altose.png" alt="Logotipo">
             </div>
             <div class="tabs-menu">
-                <a class="chip" *ngFor="let category of categories" pageScroll href="#Cachorros">
+                <a class="chip" *ngFor="let category of categories">
                     {{ category.title }}</a>
-
+                <button class="chip" (click)="goDown()">section trial</button>
             </div>
         </div>
 
+        <!-- TODO: fix the anchor sections links -->
         <!--   href="{{'#' + category.title}}" -->
 
 
         <div class="menu-list">
 
-            <section class="each-category" *ngFor="let category of categories" [id]="category.title">
+            <section class="pratododia each-category">
+                <div class="title-category">
+                    <h2>Prato do dia (11-10-2023)</h2>
+                </div>
+                <div class="products-list">
+                    <div class="each-product">
+                        <div class="product-image">
+                            <img src="../../assets/galeria1.jpg">
+                        </div>
+                        <div class="title-and-description">
+                            <h3 class="product-title">Coelhinhos de porco</h3>
+                            <p class="description">Acompanhado de batata frita e arroz</p>
+                        </div>
+                        <div class="price">7.99€</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="each-category" *ngFor="let category of categories" [id]="removeSpaces(category.title)">
                 <!-- Title Category -->
                 <div class="title-category">
                     <!-- <hr> -->
@@ -41,6 +60,11 @@
                         <div class="price">{{ product.price.toFixed(2) }}€</div>
                     </div>
                 </div>
+            </section>
+
+
+            <section id="sectiontrial">
+                <h2>Section trial here</h2>
             </section>
         </div>
         <app-gov-bar></app-gov-bar>

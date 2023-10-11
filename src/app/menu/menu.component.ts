@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
-import { Category } from '../models/models';
+import { Category, DishOfTheDay } from '../models/models';
 import { ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,21 +17,24 @@ export class MenuComponent implements OnInit {
   public categories!: Category[];
   public backgroundImageUrl!: string;
   restaurantData: any;
+  public dishoftheday!: DishOfTheDay;
 
 
   constructor(
     public router: Router,
     private http: HttpClient,
-    private restaurantService: RestaurantService
+    private restaurantService: RestaurantService,
+    private scroller: ViewportScroller
   ) { }
 
   ngOnInit(): void {
     this.checkRoute();
-    /*    this.getRestaurantData(0, true); */
+    /*   this.getRestaurantData(0, true); */
     this.changeBackgroundImage();
 
     console
     console.log(this.lume + 'lume');
+
 
     if (this.lume) {
       this.categories = [
@@ -170,6 +173,7 @@ export class MenuComponent implements OnInit {
 
 
 
+
   getRestaurantData(restaurantId: number, isDefaultLanguage: boolean) {
     this.restaurantService.getRestaurantData(restaurantId, isDefaultLanguage).subscribe((data) => {
       this.categories = <Category[]>data;
@@ -195,6 +199,22 @@ export class MenuComponent implements OnInit {
   public navigateToSection(section: string): void {
     console.log(section);
     this.router.navigate([], { fragment: section });
+  }
+
+  /*  public onClick(elementId: string): void {
+     this.viewportScroller.scrollToAnchor(elementId);
+     console.log(elementId + ' clicked!')
+   } */
+
+  // Function to remove spaces from a string
+  removeSpaces(input: string): string {
+    return input.replace(/\s+/g, ''); // This will remove all spaces in the string
+  }
+
+
+  goDown() {
+    console.log('godown clicked');
+    this.scroller.scrollToAnchor("sectiontrial");
   }
 
 }

@@ -207,4 +207,11 @@ p {
             }
         }
     }
+
+    .each-category.pratododia .each-product {
+        width: 50% !important;
+        @media screen and (max-width: 768px) {
+            width: 100% !important;
+        }
+    }
 }

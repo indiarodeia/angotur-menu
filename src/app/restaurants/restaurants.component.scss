@@ -150,6 +150,7 @@ p {
             .social-links {
                 @include flex(flex-start, center);
                 gap: 10px;
+                flex-wrap: wrap;
 
                 .btn-social {
                     padding: 8px;
