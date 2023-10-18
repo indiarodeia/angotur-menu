@@ -30,23 +30,19 @@ export class HeaderComponent implements OnInit {
     this.checkRoute();
   }
 
-  /*   selectLanguage(pt: boolean): void {
-      if (true) { }
-    } */
-
   checkRoute() {
     if (this.router.url.includes('/lume')) {
       this.lume = !this.lume;
     }
   }
-  selectLanguage(): void {
-    this.pt = !this.pt;
 
-    if (this.pt) {
-      this.RestaurantService.isDefaultLanguage(true);
+  selectLanguage(language: string) {
+    if (language == 'pt') {
+      this.RestaurantService.isDefaultLanguage = true;
+      console.log('Language selected is: ' + language + ' isDefaultLanguage is: ' + this.RestaurantService.isDefaultLanguage);
     } else {
-      this.RestaurantService.isDefaultLanguage(false);
+      this.RestaurantService.isDefaultLanguage = false;
+      console.log('Language selected is: ' + language + ' isDefaultLanguage is: ' + this.RestaurantService.isDefaultLanguage);
     }
-    console.log(this.pt);
   }
 }

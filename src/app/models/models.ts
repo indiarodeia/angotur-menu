@@ -18,9 +18,9 @@ export class Product {
     constructor(
         public title: string,
         public price: number,
-        public imageUrl?: string,
-        public id?: number,
+        public filename?: string,
         public description?: string,
+        public id?: number,
     ) { }
 }
 
