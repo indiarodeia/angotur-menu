@@ -90,7 +90,8 @@ p {
             @include font($primary-font, $regular, 14px, #fff);
 
             &:hover {
-                background-color: #663a11;
+                /*  background-color: #663a11; */
+                cursor: default;
             }
         }
     }
@@ -212,6 +213,10 @@ p {
         width: 50% !important;
         @media screen and (max-width: 768px) {
             width: 100% !important;
+        }
+
+        .title-and-description {
+            max-width: none !important;
         }
     }
 }

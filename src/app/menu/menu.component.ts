@@ -63,7 +63,6 @@ export class MenuComponent implements OnInit {
         data.description,
         data.filename
       );
-      console.warn('this is my DAILY MEALS: ' + this.dailymeal);
     })
   }
 
@@ -80,11 +79,8 @@ export class MenuComponent implements OnInit {
     if (this.router.url.includes('/lume')) {
       this.lume = !this.lume;
       this.RestaurantService.restaurantId = 2;
-      console.log('Restaurant ID is: ' + this.RestaurantService.restaurantId);
     } else {
       this.RestaurantService.restaurantId = 1;
-      console.log('Restaurant ID is: ' + this.RestaurantService.restaurantId);
-
     }
   }
 

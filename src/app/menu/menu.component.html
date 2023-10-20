@@ -22,26 +22,25 @@
 
         <div class="menu-list">
 
-            <!--  <section class="pratododia each-category" *ngFor="let dailymeal">
+            <section class="pratododia each-category">
                 <div class="title-category">
-                    <h2 *ngIf="RestaurantService.isDefaultLanguage">Prato do dia {{ getTodaysDate() }}</h2>
-                    <h2 *ngIf="!RestaurantService.isDefaultLanguage">Dish of the Day {{ getTodaysDate() }}</h2>
+                    <h2 *ngIf="RestaurantService.isDefaultLanguage">Prato do dia ( {{ getTodaysDate() }} )</h2>
+                    <h2 *ngIf="!RestaurantService.isDefaultLanguage">Dish of the Day ( {{ getTodaysDate() }} )</h2>
                 </div>
                 <div class="products-list">
                     <div class="each-product">
                         <div class="product-image">
-                            <img *ngIf="dailymeal.filename"
-                                [src]="'https://angoturfood.com/rest/api/Binary/' + dailymeal.filename">
+                            <img *ngIf="dailymeal.filename" [src]="dailymeal.filename">
                             <img *ngIf="!dailymeal.filename" src="../../assets/default.jpg">
                         </div>
                         <div class="title-and-description">
                             <h3 class="product-title">{{ dailymeal.title }}</h3>
                             <p class="description">{{ dailymeal.description }}</p>
                         </div>
-                        <div class="price">{{ dailymeal.price }}</div>
+                        <div class="price">{{ dailymeal.price }}€</div>
                     </div>
                 </div>
-            </section> -->
+            </section>
 
             <section class="each-category" *ngFor="let category of categories">
                 <!-- Title Category -->
@@ -62,7 +61,7 @@
                             <h3 class="product-title">{{ product.title }}</h3>
                             <p class="description" *ngIf="product.description">{{product.description}}</p>
                         </div>
-                        <div class="price" *ngIF="product.price">{{ product.price.toFixed(2) }}€</div>
+                        <div class="price" *ngIf="product.price">{{ product.price.toFixed(2) }}€</div>
                     </div>
                 </div>
             </section>

@@ -33,7 +33,7 @@ export class Image {
 
 export class DailyMeal {
     constructor(
-        public id: number,
+        public id?: number,
         public title?: string,
         public price?: any,
         public description?: string,
