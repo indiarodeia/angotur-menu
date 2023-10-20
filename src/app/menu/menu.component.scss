@@ -90,8 +90,7 @@ p {
             @include font($primary-font, $regular, 14px, #fff);
 
             &:hover {
-                /*  background-color: #663a11; */
-                cursor: default;
+                background-color: #663a11;
             }
         }
     }
@@ -217,6 +216,36 @@ p {
 
         .title-and-description {
             max-width: none !important;
+        }
+    }
+}
+.scroll-to-top {
+    position: absolute;
+    bottom: 120px;
+    right: 26px;
+    /*   opacity: 0; */
+    transition: all 0.2s ease-in-out;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: 10000;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(105%);
+    }
+
+    button,
+    svg {
+        width: 100%;
+        height: 100%;
+
+        &:hover {
+            cursor: pointer;
+            path {
+                fill: #000;
+            }
         }
     }
 }
