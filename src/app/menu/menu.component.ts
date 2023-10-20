@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
-import { Category, DishOfTheDay } from '../models/models';
+import { Category, DailyMeal, Product } from '../models/models';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -15,40 +16,54 @@ export class MenuComponent implements OnInit {
   public categories!: Category[];
   public backgroundfilename!: string;
   restaurantData: any;
-  public dishoftheday!: DishOfTheDay;
+  public dailymeal!: DailyMeal;
 
+  language: string = 'en';
+  private languageSubscription: Subscription;
 
   constructor(
     public router: Router,
-    private restaurantService: RestaurantService,
-  ) { }
+    public RestaurantService: RestaurantService,
+  ) {
+    this.languageSubscription = this.RestaurantService.language$.subscribe(
+      (language) => {
+        this.language = language;
+        // Update menu content based on the new language
+        this.getRestaurantMenu();
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.setRestaurantId();
-    this.getRestaurantData();
     this.changeBackgroundImage();
-    this.getRestaurantMenu(1);
+    this.getRestaurantMenu();
     this.getRestaurantDailyMeals();
+    this.getTodaysDate();
 
     console.log(this.lume + 'lume');
   };
 
   getRestaurantData() {
-    this.restaurantService.getRestaurantData().subscribe((data) => {
-      console.warn('this is my Restaurant data: ', this.categories);
+    this.RestaurantService.getRestaurantData().subscribe((data) => {
     })
   }
-  getRestaurantMenu(restaurantId: any) {
-    this.restaurantService.getRestaurantMenu(restaurantId).subscribe((data) => {
+  getRestaurantMenu() {
+    this.RestaurantService.getRestaurantMenu().subscribe((data) => {
       this.categories = <Category[]>data;
-      console.warn('this is my menu: ' + data);
     }
     )
   }
-
   getRestaurantDailyMeals() {
-    this.restaurantService.getRestaurantDailyMeals().subscribe((data) => {
-      console.warn('this is my DAILY MEALS: ' + data);
+    this.RestaurantService.getRestaurantDailyMeals().subscribe((data: any) => {
+      this.dailymeal = new DailyMeal(
+        data.id,
+        data.title,
+        data.price,
+        data.description,
+        data.filename
+      );
+      console.warn('this is my DAILY MEALS: ' + this.dailymeal);
     })
   }
 
@@ -64,15 +79,23 @@ export class MenuComponent implements OnInit {
   setRestaurantId() {
     if (this.router.url.includes('/lume')) {
       this.lume = !this.lume;
-      this.restaurantService.restaurantId = 2;
-      console.log('Restaurant ID is: ' + this.restaurantService.restaurantId);
+      this.RestaurantService.restaurantId = 2;
+      console.log('Restaurant ID is: ' + this.RestaurantService.restaurantId);
     } else {
-      this.restaurantService.restaurantId = 1;
-      console.log('Restaurant ID is: ' + this.restaurantService.restaurantId);
+      this.RestaurantService.restaurantId = 1;
+      console.log('Restaurant ID is: ' + this.RestaurantService.restaurantId);
 
     }
   }
 
+  getTodaysDate() {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let currentDate = `${day}-${month}-${year}`;
+    return currentDate;
+  }
   /*  if (this.lume) {
      this.categories = [
        {

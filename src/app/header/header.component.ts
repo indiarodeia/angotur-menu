@@ -37,12 +37,7 @@ export class HeaderComponent implements OnInit {
   }
 
   selectLanguage(language: string) {
-    if (language == 'pt') {
-      this.RestaurantService.isDefaultLanguage = true;
-      console.log('Language selected is: ' + language + ' isDefaultLanguage is: ' + this.RestaurantService.isDefaultLanguage);
-    } else {
-      this.RestaurantService.isDefaultLanguage = false;
-      console.log('Language selected is: ' + language + ' isDefaultLanguage is: ' + this.RestaurantService.isDefaultLanguage);
-    }
+    this.RestaurantService.selectLanguage(language);
   }
 }
+

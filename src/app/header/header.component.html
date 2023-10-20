@@ -3,7 +3,8 @@
 <header>
     <a class="logo" routerLink="/">Angotur</a>
     <div class="nav">
-        <a class="menu-item" href="#" title="Restaurantes">Restaurantes</a>
+        <a class="menu-item" href="#" title="Restaurantes" *ngIf="RestaurantService.isDefaultLanguage">Restaurantes</a>
+        <a *ngIf="!RestaurantService.isDefaultLanguage" class="menu-item" href="#" title="Restaurantes">Restaurants</a>
         <div class="menu-item toogle-language">
             <div class="each-option" [class.language-selected]="RestaurantService.isDefaultLanguage"
                 (click)="selectLanguage('pt')">🇵🇹 PT</div>

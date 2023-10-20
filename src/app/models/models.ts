@@ -31,9 +31,19 @@ export class Image {
     ) { }
 }
 
-export class DishOfTheDay {
+export class DailyMeal {
     constructor(
-        public product: Product,
-        public day: string,
+        public id: number,
+        public title?: string,
+        public price?: any,
+        public description?: string,
+        public filename?: string,
     ) { }
+}
+export interface ProductData {
+    title: string;
+    price?: number;
+    filename?: string;
+    description?: string;
+    id?: number;
 }

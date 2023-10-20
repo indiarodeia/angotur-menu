@@ -22,23 +22,26 @@
 
         <div class="menu-list">
 
-            <section class="pratododia each-category">
+            <!--  <section class="pratododia each-category" *ngFor="let dailymeal">
                 <div class="title-category">
-                    <h2>Prato do dia (11-10-2023)</h2>
+                    <h2 *ngIf="RestaurantService.isDefaultLanguage">Prato do dia {{ getTodaysDate() }}</h2>
+                    <h2 *ngIf="!RestaurantService.isDefaultLanguage">Dish of the Day {{ getTodaysDate() }}</h2>
                 </div>
                 <div class="products-list">
                     <div class="each-product">
                         <div class="product-image">
-                            <img src="../../assets/galeria1.jpg">
+                            <img *ngIf="dailymeal.filename"
+                                [src]="'https://angoturfood.com/rest/api/Binary/' + dailymeal.filename">
+                            <img *ngIf="!dailymeal.filename" src="../../assets/default.jpg">
                         </div>
                         <div class="title-and-description">
-                            <h3 class="product-title">Coelhinhos de porco</h3>
-                            <p class="description">Acompanhado de batata frita e arroz</p>
+                            <h3 class="product-title">{{ dailymeal.title }}</h3>
+                            <p class="description">{{ dailymeal.description }}</p>
                         </div>
-                        <div class="price">7.99€</div>
+                        <div class="price">{{ dailymeal.price }}</div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <section class="each-category" *ngFor="let category of categories">
                 <!-- Title Category -->
@@ -51,13 +54,15 @@
                 <div class="products-list">
                     <div class="each-product" *ngFor="let product of category.products">
                         <div class="product-image">
-                            <img [src]="product.filename">
+                            <img *ngIf="product.filename"
+                                [src]="'https://angoturfood.com/rest/api/Binary/' + product.filename">
+                            <img *ngIf="!product.filename" src="../../assets/default.jpg">
                         </div>
                         <div class="title-and-description">
                             <h3 class="product-title">{{ product.title }}</h3>
                             <p class="description" *ngIf="product.description">{{product.description}}</p>
                         </div>
-                        <div class="price">{{ product.price.toFixed(2) }}€</div>
+                        <div class="price" *ngIF="product.price">{{ product.price.toFixed(2) }}€</div>
                     </div>
                 </div>
             </section>
