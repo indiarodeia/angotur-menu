@@ -9,7 +9,7 @@
                 <img *ngIf="lume" class="logo logo-hidden" src="../assets/logo-lume.png" alt="Logotipo">
                 <img *ngIf="!lume" class="logo logo-hidden" src="../assets/logo-altose.png" alt="Logotipo">
             </div>
-            <div class="tabs-menu">
+            <div class="tabs-menu" *ngIf="categories">
                 <a class="chip" *ngFor="let category of categories; index as i" (click)="scrollToElement('item' + i)">
                     {{ category.title }}</a>
             </div>
@@ -28,7 +28,7 @@
 
         <div class="menu-list">
 
-            <section class="pratododia each-category">
+            <section class="pratododia each-category" *ngIf="dailymeal">
                 <div class="title-category">
                     <h2 *ngIf="RestaurantService.isDefaultLanguage">Prato do dia ( {{ getTodaysDate() }} )</h2>
                     <h2 *ngIf="!RestaurantService.isDefaultLanguage">Dish of the Day ( {{ getTodaysDate() }} )</h2>
@@ -50,7 +50,7 @@
 
             <section class="each-category" [id]="'item' + i " *ngFor="let category of categories; index as i">
                 <!-- Title Category -->
-                <div class="title-category">
+                <div class="title-category" *ngIf="category.products">
                     <!-- <hr> -->
                     <h2>{{ category.title }}</h2>
                     <!-- <hr> -->
