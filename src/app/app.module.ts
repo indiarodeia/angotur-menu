@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { GovBarComponent } from './gov-bar/gov-bar.component';
 import { MenuComponent } from './menu/menu.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -17,12 +18,14 @@ import { MenuComponent } from './menu/menu.component';
     HeaderComponent,
     RestaurantsComponent,
     GovBarComponent,
-    MenuComponent],
+    MenuComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgbCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

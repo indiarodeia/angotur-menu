@@ -8,7 +8,6 @@ export class Restaurant {
 
 export class Category {
     constructor(
-        /*  public id: number, */
         public title: string,
         public products: Product[],
     ) { }
@@ -26,8 +25,16 @@ export class Product {
 
 export class Image {
     constructor(
-        public src: string,
+        public id?: number,
+        public title?: string,
+        public titleEn?: string,
         public description?: string,
+        public descriptionEn?: string,
+        public filename?: string,
+        public mimetype?: string,
+        public order?: number,
+        public showInImages?: boolean,
+        public restaurantId?: number
     ) { }
 }
 

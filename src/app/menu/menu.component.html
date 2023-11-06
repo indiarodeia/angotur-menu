@@ -15,6 +15,21 @@
             </div>
         </div>
 
+        <!-- Caroussel -->
+        <section id="section-carousel">
+            <div class="wrapper-carousel">
+                <ngb-carousel>
+                    <ng-template ngbSlide *ngFor="let image of images" pauseOnHover="true">
+                        <img class="img-carousel" [src]="'https://angoturfood.com/rest/api/Binary/' + image.filename"
+                            alt="Random first slide">
+                        <div class="carousel-caption" *ngIf="image.description">
+                            <p>{{ image.description }}</p>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </section>
+
         <div class="scroll-to-top">
             <button (click)="scrollToElement('top')">
                 <svg xmlns=" http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 24 24"

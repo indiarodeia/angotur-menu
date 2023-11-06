@@ -1,8 +1,11 @@
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
-import { Category, DailyMeal, Product } from '../models/models';
+import { Category, DailyMeal, Image } from '../models/models';
 import { Subscription } from 'rxjs';
+import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @Component({
   selector: 'app-menu',
@@ -18,6 +21,7 @@ export class MenuComponent implements OnInit {
   restaurantData: any;
   public dailymeal!: DailyMeal;
   windowScrolled!: boolean;
+  public images!: Image[];
 
   language: string = 'en';
   private languageSubscription: Subscription;
@@ -43,8 +47,7 @@ export class MenuComponent implements OnInit {
     this.getRestaurantMenu();
     this.getRestaurantDailyMeals();
     this.getTodaysDate();
-
-    console.log(this.lume + 'lume');
+    this.getRestaurantImages();
   };
 
   getRestaurantData() {
@@ -57,7 +60,12 @@ export class MenuComponent implements OnInit {
     }
     )
   }
-
+  getRestaurantImages() {
+    this.RestaurantService.getRestaurantImages().subscribe((data) => {
+      this.images = <Image[]>data
+    }
+    )
+  }
   getRestaurantDailyMeals() {
     this.RestaurantService.getRestaurantDailyMeals().subscribe((data: any) => {
       this.dailymeal = new DailyMeal(

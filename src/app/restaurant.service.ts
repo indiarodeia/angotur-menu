@@ -47,6 +47,15 @@ export class RestaurantService {
     return this.http.get(url, { headers });
   }
 
+  getRestaurantImages() {
+    const headers = new HttpHeaders({
+      'apikey': this.apikey,
+    });
+    const url = `${this.apiUrl}api/Images/Restaurant/${this.restaurantId}`;
+    return this.http.get(url, { headers });
+  }
+
+
   // Create a subject to notify subscribers of language changes
   private languageSubject = new Subject<string>();
   language$ = this.languageSubject.asObservable();
